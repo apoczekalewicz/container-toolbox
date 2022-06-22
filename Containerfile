@@ -1,4 +1,4 @@
-FROM ubi
+FROM registry.access.redhat.com/ubi8
 
 WORKDIR /usr/local/bin
 
