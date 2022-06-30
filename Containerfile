@@ -5,4 +5,10 @@ WORKDIR /usr/local/bin
 ADD files/download.sh .
 RUN ./download.sh
 
-RUN yum install -y procps-ng nmap iptables nmap-ncat mtr iputils net-tools iproute jq bind-utils openssh-clients
+RUN INSTALL_PKGS="sos redhat-support-tool vim-minimal tcpdump mtr strace telnet procps-ng traceroute nmap-ncat iputils iproute jq bind-utils openssh-clients tcpdump nmap-ncat iptables" && \
+    yum -y install $INSTALL_PKGS && \
+    rpm -V --nosize --nofiledigest --nomtime $INSTALL_PKGS && \
+    yum clean all && \
+    rm -rf /usr/local/man
+
+CMD ["/usr/bin/bash"]
