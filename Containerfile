@@ -11,4 +11,5 @@ RUN INSTALL_PKGS="sos redhat-support-tool vim-minimal tcpdump mtr strace telnet 
     yum clean all && \
     rm -rf /usr/local/man
 
+RUN pip3 install s4cmd
 CMD ["/usr/bin/bash"]
